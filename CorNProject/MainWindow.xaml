@@ -1,0 +1,76 @@
+﻿<Window x:Class="CorNProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:userControls ="clr-namespace:CorNProject.View.UserControls"
+        xmlns:local="clr-namespace:CorNProject"
+        mc:Ignorable="d"
+        Title="CorN" Height="240" Width="450" MinHeight="200" MinWidth="450" MaxWidth="950" MaxHeight="500"
+        Icon="Resources\icon.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="230"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
+            <StackPanel>
+                <Label Content="Выбрать файлы" VerticalAlignment="Bottom" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+                    <TextBox Height="25" HorizontalAlignment="Stretch" Name ="FilePathTextBox" Margin="5"
+                 VerticalAlignment="Stretch" Width="600"  Text="{Binding FilePath}"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+            <StackPanel>
+                <Label Content="Найти " VerticalAlignment="Bottom" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBox Grid.Row="1" Height="25" HorizontalAlignment="Stretch" Name ="FindTextBox" Margin="5"
+                 VerticalAlignment="Stretch" Width="600"  Text="{Binding TxtToFind}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Margin="5">
+            <StackPanel>
+                <Label Content="Изменить" VerticalAlignment="Bottom"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <TextBox Grid.Row="2" Height="25" HorizontalAlignment="Stretch" Name ="ChangeTextBox" Margin="5"
+                 VerticalAlignment="Stretch" Width="600" MinWidth="100" Text="{Binding TxtToReplace}" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5" >
+            <Label Content="" VerticalAlignment="Bottom"/>
+            <StackPanel Orientation="Horizontal">
+                <Button  x:Name="btnFile" Width="60" Height="25" Margin="5">
+                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="Выбрать"/><LineBreak/><Run Text="файл"/></TextBlock>
+                </Button>
+                <Button x:Name="btnDirectory"  Width="60" Height="25" Margin="5">
+                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="Выбрать"/><LineBreak/><Run Text="папку"/></TextBlock>
+                </Button>
+                <Button  x:Name="btnClear" Content="Очистить" Width="60" Height="25" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" >
+            <Label Content="" VerticalAlignment="Bottom"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Grid.Row="2" Name="btnChange" Content="Изменить" Width="60" Height="25" 
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>
+    
+    
