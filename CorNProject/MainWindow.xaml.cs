@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Enumeration;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using WindowsAPICodePack.Dialogs;
@@ -26,6 +27,9 @@ namespace CorNProject
         private List<string> fileList = new List<string>();
         public MainWindow()
         {
+            var langCode = CorNProject.Properties.Settings.Default.languageCode;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+
             DataContext = this;
             InitializeComponent();
 
@@ -33,6 +37,8 @@ namespace CorNProject
             btnDirectory.Click += BtnDirectoryClick;
             btnClear.Click += ClearPahtInputFields;
             btnChange.Click += FindAndChange;
+
+            Console.WriteLine($"{Properties.Settings.Default.languageCode}");
         }
         private string txtToFind;
         public string TxtToFind
@@ -201,6 +207,12 @@ namespace CorNProject
         private void ClearPahtInputFields(object sender, RoutedEventArgs e)
         {
             ClearInputFields();
+
+            var lang = Properties.Settings.Default.languageCode;
+
+            Properties.Settings.Default.languageCode = lang == "en-Us" ? "ru-RU" : "en-Us";
+
+            Properties.Settings.Default.Save();
         }
         private void ClearInputFields()
         {

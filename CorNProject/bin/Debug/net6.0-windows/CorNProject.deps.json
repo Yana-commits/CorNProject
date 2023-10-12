@@ -17,6 +17,11 @@
         },
         "runtime": {
           "CorNProject.dll": {}
+        },
+        "resources": {
+          "ru/CorNProject.resources.dll": {
+            "locale": "ru"
+          }
         }
       },
       "AvalonEdit/6.3.0.90": {

@@ -9,7 +9,6 @@ C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\App.g.cs
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject_MarkupCompile.cache
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject_MarkupCompile.lref
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\MainWindow.baml
-C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.g.resources
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.GeneratedMSBuildEditorConfig.editorconfig
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.AssemblyInfoInputs.cache
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.AssemblyInfo.cs
@@ -64,3 +63,11 @@ C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\LogWin.baml
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\MyMessageBox.g.cs
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\MyMessageBox.baml
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\WindowsAPICodePack.Shell.CommonFileDialogs.Wpf.dll
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.g.resources
+C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\CorNProject.dll.config
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.Properties.Resources.resources
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.csproj.GenerateResource.cache
+C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\ru\CorNProject.resources.dll
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.Properties.Langs.Lang.resources
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.Properties.Langs.Lang.ru.resources
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\ru\CorNProject.resources.dll
