@@ -106,6 +106,51 @@ namespace CorNProject.Properties.Langs {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Logging.
+        /// </summary>
+        public static string logging {
+            get {
+                return ResourceManager.GetString("logging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на produced.
+        /// </summary>
+        public static string produced {
+            get {
+                return ResourceManager.GetString("produced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на replacement.
+        /// </summary>
+        public static string replacement {
+            get {
+                return ResourceManager.GetString("replacement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на replacements.
+        /// </summary>
+        public static string replacements {
+            get {
+                return ResourceManager.GetString("replacements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на replacements.
+        /// </summary>
+        public static string replacements1 {
+            get {
+                return ResourceManager.GetString("replacements1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на To choose.
         /// </summary>
         public static string to_choose {

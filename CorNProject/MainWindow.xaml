@@ -54,19 +54,19 @@
             <Label Content="" VerticalAlignment="Bottom"/>
             <StackPanel Orientation="Horizontal">
                 <Button  x:Name="btnFile" Width="60" Height="25" Margin="5">
-                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="Выбрать"/><LineBreak/><Run Text="файл"/></TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="{x:Static language:Lang.to_choose}"/><LineBreak/><Run Text="{x:Static language:Lang.file}"/></TextBlock>
                 </Button>
                 <Button x:Name="btnDirectory"  Width="60" Height="25" Margin="5">
-                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="Выбрать"/><LineBreak/><Run Text="папку"/></TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="{x:Static language:Lang.to_choose}"/><LineBreak/><Run Text="{x:Static language:Lang.folder}"/></TextBlock>
                 </Button>
-                <Button  x:Name="btnClear" Content="Очистить" Width="60" Height="25" Margin="5"/>
+                <Button  x:Name="btnClear" Content="{x:Static language:Lang.clear}" Width="60" Height="25" Margin="5"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" >
             <Label Content="" VerticalAlignment="Bottom"/>
             <StackPanel Orientation="Horizontal">
-                <Button Grid.Row="2" Name="btnChange" Content="Изменить" Width="60" Height="25" 
+                <Button Grid.Row="2" Name="btnChange" Content="{x:Static language:Lang.change}" Width="60" Height="25" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
             </StackPanel>
         </StackPanel>

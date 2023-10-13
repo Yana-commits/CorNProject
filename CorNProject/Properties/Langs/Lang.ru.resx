@@ -132,8 +132,23 @@
   <data name="folder" xml:space="preserve">
     <value>папку</value>
   </data>
+  <data name="logging" xml:space="preserve">
+    <value>Логгирование</value>
+  </data>
+  <data name="produced" xml:space="preserve">
+    <value>произведено</value>
+  </data>
+  <data name="replacement" xml:space="preserve">
+    <value>замена</value>
+  </data>
+  <data name="replacements" xml:space="preserve">
+    <value>замен</value>
+  </data>
+  <data name="replacements1" xml:space="preserve">
+    <value>замены</value>
+  </data>
   <data name="to_choose" xml:space="preserve">
-    <value>Изменить</value>
+    <value>Выбрать</value>
   </data>
   <data name="to_choose_files" xml:space="preserve">
     <value>Выбрать файы</value>

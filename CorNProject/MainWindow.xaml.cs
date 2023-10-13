@@ -19,7 +19,7 @@ namespace CorNProject
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private LogWin logWindow;
+        private LoggWin logWindow;
 
         private ErrorMessages errorMessages = new ErrorMessages();
         private FindReplace findReplace = new FindReplace();
@@ -27,8 +27,9 @@ namespace CorNProject
         private List<string> fileList = new List<string>();
         public MainWindow()
         {
-            var langCode = CorNProject.Properties.Settings.Default.languageCode;
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+            //var langCode = CorNProject.Properties.Settings.Default.languageCode;
+            //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+            SetLang.ToSetLang();
 
             DataContext = this;
             InitializeComponent();
@@ -190,7 +191,7 @@ namespace CorNProject
                 {
                     var logWin = findReplace.FindAndReplace(TxtToFind, TxtToReplace, fileList);
 
-                    logWindow = new LogWin(logWin);
+                    logWindow = new LoggWin(logWin);
                     logWindow.Owner = this;
                     logWindow.Show();
                 }
@@ -208,11 +209,11 @@ namespace CorNProject
         {
             ClearInputFields();
 
-            var lang = Properties.Settings.Default.languageCode;
+            //var lang = Properties.Settings.Default.languageCode;
 
-            Properties.Settings.Default.languageCode = lang == "en-Us" ? "ru-RU" : "en-Us";
+            //Properties.Settings.Default.languageCode = lang == "en-Us" ? "ru-RU" : "en-Us";
 
-            Properties.Settings.Default.Save();
+            //Properties.Settings.Default.Save();
         }
         private void ClearInputFields()
         {

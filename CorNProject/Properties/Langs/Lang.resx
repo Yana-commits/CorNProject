@@ -132,6 +132,21 @@
   <data name="folder" xml:space="preserve">
     <value>folder</value>
   </data>
+  <data name="logging" xml:space="preserve">
+    <value>Logging</value>
+  </data>
+  <data name="produced" xml:space="preserve">
+    <value>produced</value>
+  </data>
+  <data name="replacement" xml:space="preserve">
+    <value>replacement</value>
+  </data>
+  <data name="replacements" xml:space="preserve">
+    <value>replacements</value>
+  </data>
+  <data name="replacements1" xml:space="preserve">
+    <value>replacements</value>
+  </data>
   <data name="to_choose" xml:space="preserve">
     <value>To choose</value>
   </data>

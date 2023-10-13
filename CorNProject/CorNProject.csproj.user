@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="LoggWin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LogWin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -29,6 +32,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="LoggWin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LogWin.xaml">
       <SubType>Designer</SubType>
     </Page>
