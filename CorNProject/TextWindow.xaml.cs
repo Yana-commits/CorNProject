@@ -90,7 +90,7 @@ namespace CorNProject
             {
               var logWin =  findReplace.FindAndReplace(TxtToFind, TxtToReplace, FileName);
 
-                LogWin logWindow = new LogWin(logWin);
+                LoggWin logWindow = new LoggWin(logWin);
                 logWindow.Show();
             }  
         }

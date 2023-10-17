@@ -58,8 +58,6 @@ C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\System.Text.Json.dll
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.Messages.dll
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Diagnostics.EventLog.dll
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
-C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\LogWin.g.cs
-C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\LogWin.baml
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\MyMessageBox.g.cs
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\MyMessageBox.baml
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\WindowsAPICodePack.Shell.CommonFileDialogs.Wpf.dll

@@ -26,9 +26,7 @@ namespace CorNProject
 
         private List<string> fileList = new List<string>();
         public MainWindow()
-        {
-            //var langCode = CorNProject.Properties.Settings.Default.languageCode;
-            //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(langCode);
+        {  
             SetLang.ToSetLang();
 
             DataContext = this;
@@ -39,7 +37,6 @@ namespace CorNProject
             btnClear.Click += ClearPahtInputFields;
             btnChange.Click += FindAndChange;
 
-            Console.WriteLine($"{Properties.Settings.Default.languageCode}");
         }
         private string txtToFind;
         public string TxtToFind
@@ -132,12 +129,6 @@ namespace CorNProject
                 }
             }
 
-            //if (fileList.Count > 0)
-            //{
-            //    TextWindow textWindow = new TextWindow(fileList);
-            //    textWindow.Show();
-            //}
-
         }
         private void InputPathClick()
         {
@@ -208,12 +199,6 @@ namespace CorNProject
         private void ClearPahtInputFields(object sender, RoutedEventArgs e)
         {
             ClearInputFields();
-
-            //var lang = Properties.Settings.Default.languageCode;
-
-            //Properties.Settings.Default.languageCode = lang == "en-Us" ? "ru-RU" : "en-Us";
-
-            //Properties.Settings.Default.Save();
         }
         private void ClearInputFields()
         {
