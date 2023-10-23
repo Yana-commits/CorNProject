@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CorNProject
+namespace CorNProject.Services
 {
     public static class SetLang
     {
@@ -26,10 +26,10 @@ namespace CorNProject
             }
             else
             {
-                currentInfo = defaulltRu;  
+                currentInfo = defaulltEng;
             }
 
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(currentInfo);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentInfo);
 
             Properties.Settings.Default.languageCode = currentInfo;
             Properties.Settings.Default.Save();

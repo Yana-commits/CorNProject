@@ -71,3 +71,4 @@ C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.Properti
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\ru\CorNProject.resources.dll
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\LoggWin.g.cs
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\LoggWin.baml
+C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

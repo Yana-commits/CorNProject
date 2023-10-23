@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 
-namespace CorNProject
+namespace CorNProject.Services
 {
     public class ErrorMessages
     {

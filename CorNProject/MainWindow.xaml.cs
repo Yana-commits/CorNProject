@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using CorNProject.Requests;
+using CorNProject.Services;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,10 +25,11 @@ namespace CorNProject
 
         private ErrorMessages errorMessages = new ErrorMessages();
         private FindReplace findReplace = new FindReplace();
+        private HttpRequests httpRequests = new HttpRequests();
 
         private List<string> fileList = new List<string>();
         public MainWindow()
-        {  
+        {
             SetLang.ToSetLang();
 
             DataContext = this;
@@ -169,7 +172,7 @@ namespace CorNProject
                 {
                     InputPathClick();
                 }
-    
+
             }
 
             if (fileList.Count != 0)
@@ -194,10 +197,18 @@ namespace CorNProject
             fileList.Add(file);
             FilePathTextBox.Text += file;
             FilePathTextBox.Text += "; ";
-           
+
         }
-        private void ClearPahtInputFields(object sender, RoutedEventArgs e)
+
+        private readonly string localkey = "123";
+        private async void ClearPahtInputFields(object sender, RoutedEventArgs e)
         {
+            await httpRequests.GetItemAsync();
+
+            var isAcualRequest = new IsActualRequest() { Key = localkey };
+            await httpRequests.IsInBasket(isAcualRequest);
+            await httpRequests.IsIn();
+
             ClearInputFields();
         }
         private void ClearInputFields()
