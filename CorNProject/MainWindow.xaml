@@ -68,6 +68,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button Grid.Row="2" Name="btnChange" Content="{x:Static language:Lang.change}" Width="60" Height="25" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
+                <TextBlock x:Name="Status" Text="sd"  Margin="90,10" Width="50" />
             </StackPanel>
         </StackPanel>
 

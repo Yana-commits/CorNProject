@@ -25,12 +25,14 @@ namespace CorNProject
 
         private ErrorMessages errorMessages = new ErrorMessages();
         private FindReplace findReplace = new FindReplace();
-        private HttpRequests httpRequests = new HttpRequests();
-
+        private StatusChecker statusChecker = new StatusChecker();
+      
         private List<string> fileList = new List<string>();
         public MainWindow()
         {
             SetLang.ToSetLang();
+            statusChecker.isActualKey += CheckKey;
+            statusChecker.SetTimer();
 
             DataContext = this;
             InitializeComponent();
@@ -203,18 +205,31 @@ namespace CorNProject
         private readonly string localkey = "123";
         private async void ClearPahtInputFields(object sender, RoutedEventArgs e)
         {
-            await httpRequests.GetItemAsync();
-
-            var isAcualRequest = new IsActualRequest() { Key = localkey };
-            await httpRequests.IsInBasket(isAcualRequest);
-            await httpRequests.IsIn();
-
+       
             ClearInputFields();
         }
         private void ClearInputFields()
         {
             FilePathTextBox.Text = "";
             FilePath = null;
+        }
+
+        private void CheckKey(bool isActual)
+        {
+            if (CheckConnection.CheckForInternetConnection())
+            {
+                var random = new Random();
+                var mmm = random.Next(1, 100);
+
+                this.Dispatcher.Invoke(() =>
+                {
+                    Status.Text = mmm.ToString();
+                });
+            }
+            else 
+            {
+            
+            }
         }
     }
 }
