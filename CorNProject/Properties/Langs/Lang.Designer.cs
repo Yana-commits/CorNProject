@@ -106,11 +106,47 @@ namespace CorNProject.Properties.Langs {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на found.
+        /// </summary>
+        public static string found {
+            get {
+                return ResourceManager.GetString("found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Logging.
         /// </summary>
         public static string logging {
             get {
                 return ResourceManager.GetString("logging", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на match.
+        /// </summary>
+        public static string match {
+            get {
+                return ResourceManager.GetString("match", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на matches.
+        /// </summary>
+        public static string matches {
+            get {
+                return ResourceManager.GetString("matches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на matches.
+        /// </summary>
+        public static string matches1 {
+            get {
+                return ResourceManager.GetString("matches1", resourceCulture);
             }
         }
         

@@ -22,8 +22,6 @@ C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\View\UserControls\Me
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\View\UserControls\MenuBar.baml
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\View\UserControls\ClearableTextBox.g.cs
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\View\UserControls\ClearableTextBox.baml
-C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\TextWindow.g.cs
-C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\TextWindow.baml
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\ICSharpCode.AvalonEdit.dll
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\CorNProject.csproj.CopyComplete
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll

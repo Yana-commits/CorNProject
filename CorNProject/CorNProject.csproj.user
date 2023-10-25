@@ -13,9 +13,6 @@
     <Compile Update="MyMessageBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TextWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="View\UserControls\ClearableTextBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -36,9 +33,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MyMessageBox.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="TextWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\UserControls\ClearableTextBox.xaml">

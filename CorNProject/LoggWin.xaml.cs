@@ -3,17 +3,8 @@ using CorNProject.Properties.Langs;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace CorNProject
 {
@@ -29,22 +20,34 @@ namespace CorNProject
             set => _gridItems = value;
         }
 
-        public LoggWin(List<MyLogger> _loggs)
+        private string actPlural = Lang.replacements;
+        private string actOnly = Lang.replacement;
+        private string actPlralRus = Lang.replacements1;
+        private string act = Lang.produced;
+
+        public LoggWin(List<MyLogger> _loggs, bool onlyFind)
         {
+            if (onlyFind)
+            {
+                actOnly = Lang.match;
+                actPlural = Lang.matches;
+                actPlralRus = Lang.matches1;
+                act = Lang.found;
+            }
 
             GridItems = new ObservableCollection<LogToShow>();
 
             foreach (var item in _loggs)
             {
-                var rep = "  " + Lang.replacements;
+                var rep = "  " + actPlural;
 
                 if ((item.Number == 1) || (item.Number > 20 && item.Number % 10 == 1))
-                    rep = "  " + Lang.replacement;
+                    rep = "  " + actOnly;
 
                 else if ((item.Number > 1 && item.Number < 5) || (item.Number > 20 && item.Number % 10 > 1 && item.Number % 10 < 5))
-                    rep = "  " + Lang.replacements1;
+                    rep = "  " + actPlralRus;
 
-                var repMessage = Lang.produced + " " + item.Number.ToString() + rep;
+                var repMessage = act + " " + item.Number.ToString() + rep;
                 GridItems.Add(new LogToShow() { File = item.FileName, ReplaceMessage = repMessage });
             }
 
@@ -53,5 +56,7 @@ namespace CorNProject
             InitializeComponent();
             LoggsData.IsReadOnly = true;
         }
+
+
     }
 }

@@ -132,8 +132,20 @@
   <data name="folder" xml:space="preserve">
     <value>папку</value>
   </data>
+  <data name="found" xml:space="preserve">
+    <value>найдено</value>
+  </data>
   <data name="logging" xml:space="preserve">
     <value>Логгирование</value>
+  </data>
+  <data name="match" xml:space="preserve">
+    <value>совпадение</value>
+  </data>
+  <data name="matches" xml:space="preserve">
+    <value>совпадений</value>
+  </data>
+  <data name="matches1" xml:space="preserve">
+    <value>совпадения</value>
   </data>
   <data name="produced" xml:space="preserve">
     <value>произведено</value>
