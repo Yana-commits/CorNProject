@@ -1,10 +1,13 @@
-﻿using CorNProject.Models;
+﻿using CorNProject.Enums;
+using CorNProject.Models;
+using CorNProject.Properties.Langs;
 using CorNProject.Requests;
 using CorNProject.Services;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.IO.Enumeration;
 using System.Linq;
@@ -12,6 +15,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
 using WindowsAPICodePack.Dialogs;
 using static System.Net.WebRequestMethods;
 
@@ -25,22 +30,27 @@ namespace CorNProject
         private ErrorMessages errorMessages = new ErrorMessages();
         private FindReplace findReplace = new FindReplace();
         private StatusChecker statusChecker = new StatusChecker();
+        private StatusEnum status = StatusEnum.OnlineVersion;
       
         private List<string> fileList = new List<string>();
+        private Action<Button, StatusEnum> btnName;
         public MainWindow()
         {
             SetLang.ToSetLang();
             statusChecker.isActualKey += CheckKey;
-            statusChecker.SetTimer();
 
+            btnName += ChangeBtnName;
+           
             DataContext = this;
             InitializeComponent();
+            statusChecker.SetTimer();
 
             btnFile.Click += BtnFindClick;
             btnDirectory.Click += BtnDirectoryClick;
             btnClear.Click += ClearPahtInputFields;
             btnChange.Click += FindAndChange;
 
+           
         }
         private string txtToFind;
         public string TxtToFind
@@ -167,18 +177,51 @@ namespace CorNProject
         {
             if (CheckConnection.CheckForInternetConnection())
             {
-                var random = new Random();
-                var mmm = random.Next(1, 100);
-
-                this.Dispatcher.Invoke(() =>
+                if (isActual)
                 {
-                    Status.Text = mmm.ToString();
-                });
+                    status = StatusEnum.OnlineVersion;
+                    ChangeTxt(Status, "");
+                  
+                    btnName?.Invoke(btnChange, status);
+                }
+                else 
+                {
+                    status = StatusEnum.NoLicense;
+                    ChangeTxt(Status, status.ToString());
+                  
+                    btnName?.Invoke(btnChange, status);
+                } 
             }
             else 
             {
-            
+                status = StatusEnum.NoConnection;
+                ChangeTxt(Status, status.ToString());
+             
+                btnName?.Invoke(btnChange, status);
             }
+        }
+
+        private void ChangeBtnName(Button button,StatusEnum status)
+        {
+            if (status == StatusEnum.OnlineVersion)
+                ChangeBtn(button, Lang.change);
+            
+            else
+                ChangeBtn(button, Lang.find); 
+        }
+        private void ChangeBtn(Button button,string cont)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                button.Content = cont;
+            });
+        }
+        private void ChangeTxt(TextBlock block, string cont)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                block.Text = cont;
+            });
         }
     }
 }

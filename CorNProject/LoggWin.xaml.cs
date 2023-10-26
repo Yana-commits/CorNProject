@@ -56,7 +56,5 @@ namespace CorNProject
             InitializeComponent();
             LoggsData.IsReadOnly = true;
         }
-
-
     }
 }

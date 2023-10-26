@@ -39,10 +39,13 @@ namespace CorNProject.Services
         }
         public async Task<bool> IsActual(IsActualRequest key)
         {
-            //var result = await HttpRequests.SendAsync<bool, IsActualRequest>(adress,
-            //    HttpMethod.Post,
-            //   key);
-            var result = true;
+            var result = await HttpRequests.SendAsync<bool, IsActualRequest>(adress,
+                HttpMethod.Post,
+               key);
+
+            if(result==null)
+                result= false;
+            //var result = true;
 
             return result;
         }

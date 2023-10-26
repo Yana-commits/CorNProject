@@ -9,6 +9,7 @@ namespace CorNProject.Enums
     public enum StatusEnum
     {
         NoConnection,
-        NoLicense
+        NoLicense,
+        OnlineVersion
     }
 }
