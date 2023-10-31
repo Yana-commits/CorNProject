@@ -1,99 +1,62 @@
 ﻿using CorNProject.Enums;
 using CorNProject.Models;
 using CorNProject.Properties.Langs;
-using CorNProject.Requests;
 using CorNProject.Services;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.IO;
-using System.IO.Enumeration;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using WindowsAPICodePack.Dialogs;
-using static System.Net.WebRequestMethods;
 
 namespace CorNProject
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
         private ErrorMessages errorMessages = new ErrorMessages();
         private FindReplace findReplace = new FindReplace();
-        private StatusChecker statusChecker = new StatusChecker();
+        private FileDialogManager dialogManager = new FileDialogManager();
         private StatusEnum status = StatusEnum.OnlineVersion;
-      
+
         private List<string> fileList = new List<string>();
         private Action<Button, StatusEnum> btnName;
+        private ChoiceFieldEnum choiceField = ChoiceFieldEnum.Inputs;
+        private string previousAdress = "";
+        public DialogData Data { get; }
         public MainWindow()
         {
             SetLang.ToSetLang();
-            statusChecker.isActualKey += CheckKey;
+            StatusChecker.Instance().isActualKey += CheckKey;
+            StatusChecker.Instance().SetTimer();
 
-            btnName += ChangeBtnName;
-           
+            Data = new DialogData();
             DataContext = this;
             InitializeComponent();
-            statusChecker.SetTimer();
 
-            btnFile.Click += BtnFindClick;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            btnName += ChangeBtnName;
+
+            btnFile.Click += BtnFileClick;
             btnDirectory.Click += BtnDirectoryClick;
             btnClear.Click += ClearPahtInputFields;
             btnChange.Click += FindAndChange;
 
-           
-        }
-        private string txtToFind;
-        public string TxtToFind
-        {
-            get { return txtToFind; }
-            set
-            {
-                txtToFind = value;
-                OnPropertyChanged("TxtToFind");
-            }
-        }
-        private string txtToReplace;
-        public string TxtToReplace
-        {
-            get { return txtToReplace; }
-            set
-            {
-                txtToReplace = value;
-                OnPropertyChanged("TxtToReplace");
-            }
-        }
-        private string filePath;
-        public string FilePath
-        {
-            get { return filePath; }
-            set
-            {
-                filePath = value;
-                OnPropertyChanged("FilePath");
-            }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            SetStatusLook(status);
         }
 
         async void BtnDirectoryClick(object sender, RoutedEventArgs e)
         {
             findReplace.RemoveLogWin();
-           
-            ClearInputFields();
+
+            ClearFields();
+
+            //Data.FilePath = dialogManager.DirectoryDialog(Data.FilePath, fileList, ref FilePathTextBox);
 
             var fileDialog = new CommonOpenFileDialog();
             fileDialog.Multiselect = true;
@@ -112,15 +75,18 @@ namespace CorNProject
                     {
                         AddFileFromDialog(file);
                     }
-                    FilePath = fileDialog.FileName;
+                    Data.FilePath = fileDialog.FileName;
                 }
             }
+            previousAdress = Data.FilePath;
         }
-        async void BtnFindClick(object sender, RoutedEventArgs e)
+        async void BtnFileClick(object sender, RoutedEventArgs e)
         {
             findReplace.RemoveLogWin();
 
-            ClearInputFields();
+            ClearFields();
+
+            //Data.FilePath = dialogManager.FileDialog(Data.FilePath,ref fileList,ref FilePathTextBox);
 
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = true;
@@ -136,80 +102,98 @@ namespace CorNProject
                     if (isFile)
                     {
                         AddFileFromDialog(file);
-                        FilePath = file;
+                        //Data.FilePath = file;
                     }
                 }
             }
+            previousAdress = Data.FilePath;
         }
-       
+
         private void FindAndChange(object sender, RoutedEventArgs e)
         {
-            findReplace.RemoveLogWin();
-            var settings = new FindReplaceSettings()
-            {
-                FileList = fileList,
-                FilePath = filePath,
-                ToFind = TxtToFind,
-                ToReplace = TxtToReplace,
-                Owner = this,
-                OnlyFind = false
-            };
+            CheckInputs();
 
-            findReplace.FindAndChange(settings);  
+            if (fileList.Count != 0)
+            {
+                var onlyFind = false;
+
+                if (status != StatusEnum.OnlineVersion)
+                    onlyFind = true;
+
+                var settings = new FindReplaceSettings()
+                {
+                    FileList = fileList,
+                    FilePath = Data.FilePath,
+                    ToFind = Data.TxtToFind,
+                    ToReplace = Data.TxtToReplace,
+                    Owner = this,
+                    OnlyFind = onlyFind
+                };
+
+                findReplace.FindAndChange(settings);
+            }
+
+        }
+        private void CheckInputs()
+        {
+            findReplace.RemoveLogWin();
+
+            if (Data.FilePath == null || Data.FilePath == "")
+            {
+                MyMessageBox.Show("No files are choosen to be changed", MessageBoxButton.OK);
+                fileList.Clear();
+                return;
+            }
+            else if (previousAdress != Data.FilePath)
+            {
+                fileList = findReplace.InputPathClick(Data.FilePath);
+                previousAdress = Data.FilePath;
+            }
         }
         private void AddFileFromDialog(string file)
         {
             fileList.Add(file);
-            FilePathTextBox.Text += file;
-            FilePathTextBox.Text += "; ";
+            Data.FilePath += file;
+            Data.FilePath += ";";
         }
         private async void ClearPahtInputFields(object sender, RoutedEventArgs e)
         {
-       
-            ClearInputFields();
+            ClearFields();
         }
-        private void ClearInputFields()
+        private void ClearFields()
         {
-            FilePathTextBox.Text = "";
-            FilePath = null;
+            fileList.Clear();
+            //Data.FilePath = "";
+            Data.FilePath = null;
         }
-        private void CheckKey(bool isActual)
+        private void CheckKey(StatusEnum _status)
         {
-            if (CheckConnection.CheckForInternetConnection())
-            {
-                if (isActual)
-                {
-                    status = StatusEnum.OnlineVersion;
-                    ChangeTxt(Status, "");
-                  
-                    btnName?.Invoke(btnChange, status);
-                }
-                else 
-                {
-                    status = StatusEnum.NoLicense;
-                    ChangeTxt(Status, status.ToString());
-                  
-                    btnName?.Invoke(btnChange, status);
-                } 
-            }
-            else 
-            {
-                status = StatusEnum.NoConnection;
-                ChangeTxt(Status, status.ToString());
-             
-                btnName?.Invoke(btnChange, status);
-            }
+            var currStatus = status;
+            status = _status;
+
+            if (status != currStatus)
+                SetStatusLook(_status);
         }
 
-        private void ChangeBtnName(Button button,StatusEnum status)
+        private void SetStatusLook(StatusEnum status)
+        {
+            var text = "";
+
+            if (status != StatusEnum.OnlineVersion)
+                text = status.ToString();
+
+            btnName?.Invoke(btnChange, status);
+            ChangeTxt(Status, text);
+        }
+        private void ChangeBtnName(Button button, StatusEnum status)
         {
             if (status == StatusEnum.OnlineVersion)
                 ChangeBtn(button, Lang.change);
-            
+
             else
-                ChangeBtn(button, Lang.find); 
+                ChangeBtn(button, Lang.find);
         }
-        private void ChangeBtn(Button button,string cont)
+        private void ChangeBtn(Button button, string cont)
         {
             this.Dispatcher.Invoke(() =>
             {
@@ -223,5 +207,6 @@ namespace CorNProject
                 block.Text = cont;
             });
         }
+
     }
 }

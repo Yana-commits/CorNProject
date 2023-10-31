@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         xmlns:language="clr-namespace:CorNProject.Properties.Langs"
         Title="CorN" Height="240" Width="450" MinHeight="200" MinWidth="450" MaxWidth="950" MaxHeight="500"
-        Icon="Resources\icon.png">
+        Icon="Resources\icon.png" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -25,7 +25,7 @@
                 <Label Content="{x:Static language:Lang.to_choose_files}" VerticalAlignment="Bottom" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
                     <TextBox Height="25" HorizontalAlignment="Stretch" Name ="FilePathTextBox" Margin="5"
-                 VerticalAlignment="Stretch" Width="600"  Text="{Binding FilePath}"/>
+                 VerticalAlignment="Stretch" Width="600"  Text="{Binding Data.FilePath}"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -35,7 +35,7 @@
                 <Label Content="{x:Static language:Lang.find}"  VerticalAlignment="Bottom" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <TextBox Grid.Row="1" Height="25" HorizontalAlignment="Stretch" Name ="FindTextBox" Margin="5"
-                 VerticalAlignment="Stretch" Width="600"  Text="{Binding TxtToFind}" />
+                 VerticalAlignment="Stretch" Width="600"  Text="{Binding Data.TxtToFind}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -45,7 +45,7 @@
                 <Label Content="{x:Static language:Lang.change}" VerticalAlignment="Bottom"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <TextBox Grid.Row="2" Height="25" HorizontalAlignment="Stretch" Name ="ChangeTextBox" Margin="5"
-                 VerticalAlignment="Stretch" Width="600" MinWidth="100" Text="{Binding TxtToReplace}" />
+                 VerticalAlignment="Stretch" Width="600" MinWidth="100" Text="{Binding Data.TxtToReplace}" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CorNProject.Requests;
+using CorNProject.Services;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,6 +12,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Input;
 
 namespace CorNProject
 {
@@ -18,11 +22,9 @@ namespace CorNProject
     /// </summary>
     public partial class App : Application
     {
-       
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
-           
-            base.OnStartup(e);
+       
         }
     }
 }

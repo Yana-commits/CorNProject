@@ -29,7 +29,7 @@ namespace CorNProject.Services
                 currentInfo = defaulltEng;
             }
 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentInfo);
+           Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentInfo);
 
             Properties.Settings.Default.languageCode = currentInfo;
             Properties.Settings.Default.Save();

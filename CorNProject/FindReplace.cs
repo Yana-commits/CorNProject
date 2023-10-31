@@ -26,18 +26,19 @@ namespace CorNProject
         public void FindAndChange(FindReplaceSettings settings)
         {
 
-            if (settings.FileList.Count == 0)
-            {
-                if (settings.FilePath == null || settings.FilePath == "")
-                {
-                    MyMessageBox.Show("No files are choosen to be changed", MessageBoxButton.OK);
-                }
-                else
-                {
-                    InputPathClick(settings.FileList, settings.FilePath);
-                }
-
-            }
+            //if (settings.FileList.Count == 0)
+            //{
+            //    //if (settings.FilePath == null || settings.FilePath == "")
+            //    //{
+            //    //    MyMessageBox.Show("No files are choosen to be changed", MessageBoxButton.OK);
+            //    //    settings.FileList.Clear();
+            //    //}
+            //    //else
+            //    //{
+            //        var fileLIst = InputPathClick(settings.FilePath);
+            //        settings.FileList = fileLIst;
+            //    //}
+            //}
 
             if (settings.FileList.Count != 0)
             {
@@ -49,35 +50,45 @@ namespace CorNProject
                 {
                     var logWin = FindAndReplace(settings.ToFind, settings.ToReplace, settings.FileList, settings.OnlyFind);
 
-                    logWindow = new LoggWin(logWin,settings.OnlyFind);
+                    logWindow = new LoggWin(logWin, settings.OnlyFind);
                     logWindow.Owner = settings.Owner;
                     logWindow.Show();
                 }
-                settings.FileList.Clear();
+                //settings.FileList.Clear();
             }
         }
-        private void InputPathClick(List<string> fileList, string FilePath)
+        public List<string> InputPathClick(string FilePath)
         {
+            List<string> fileList = new List<string>();
+            string[]possAddresses = FilePath.Split(';');
 
-            var isDerictory = errorMessages.DirectoryNotExists(FilePath);
-
-            if (isDerictory)
+            foreach (var address in possAddresses)
             {
-                var files = Directory.GetFiles(FilePath);
-                foreach (var file in files)
+                var isDerictory = errorMessages.DirectoryNotExists(address);
+
+                if (isDerictory)
                 {
-                    fileList.Add(file);
+                    var files = Directory.GetFiles(address);
+                    foreach (var file in files)
+                    {
+                        fileList.Add(file);
+                    }
+                }
+                else
+                {
+                    if (address != "")
+                    {
+                        var isFile = errorMessages.FileNOtExists(address);
+
+                        if (isFile)
+                        {
+                            fileList.Add(address);
+                        }
+                    }  
                 }
             }
-            else
-            {
-                var isFile = errorMessages.FileNOtExists(FilePath);
-
-                if (isFile)
-                {
-                    fileList.Add(FilePath);
-                }
-            }
+            
+            return fileList;
         }
         public List<MyLogger> FindAndReplace(string toFind, string toReplace, List<string> fileNames, bool onlyFind)
         {
@@ -151,9 +162,9 @@ namespace CorNProject
                         builder.Append(replStr);
                         i += searchStr.Length - 1;
                     }
-                    else 
+                    else
                         builder.Append(srcStr[i]);
-                
+
                     number++;
                 }
                 else
