@@ -5,14 +5,18 @@ using Microsoft.Win32;
 using System.Windows.Documents;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using System.Security.Policy;
+using CorNProject.Models;
 
 namespace CorNProject.Services
 {
     internal class FileDialogManager
     {
         private ErrorMessages errorMessages = new ErrorMessages();
-        public string DirectoryDialog(string filePath, List<string> fileList,ref TextBox textBox)
+        public DialogModel DirectoryDialog( )
         {
+            DialogModel model= new DialogModel();
+
             var fileDialog = new CommonOpenFileDialog();
             fileDialog.Multiselect = true;
             fileDialog.IsFolderPicker = true;
@@ -28,17 +32,18 @@ namespace CorNProject.Services
                     var files = Directory.GetFiles(fileDialog.FileName);
                     foreach (var file in files)
                     {
-                        AddFileFromDialog(file,fileList,ref textBox);
+                        model.FileList.Add(file);
                     }
-                    filePath = fileDialog.FileName;
-                    //Data.FilePath
+                    model.FilePath = fileDialog.FileName;
                 }
             }
-            return filePath;
+           
+            return model;
         }
 
-        public string FileDialog(string filePath,ref List<string> fileList,ref TextBox textBox)
+        public DialogModel FileDialog()
         {
+            DialogModel model = new DialogModel();
 
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = true;
@@ -53,19 +58,14 @@ namespace CorNProject.Services
 
                     if (isFile)
                     {
-                        AddFileFromDialog(file, fileList,ref textBox);
-                        filePath = file;
-                        //Data.FilePath
+                        model.FileList.Add(file);
+                        model.FilePath += file;
+                        model.FilePath += ";";
                     }
                 }
             }
-            return filePath;
+            return model;
         }
-        private void AddFileFromDialog(string file, List<string> fileList,ref TextBox textBox)
-        {
-            fileList.Add(file);
-            textBox.Text += file;
-            textBox.Text += "; ";
-        }
+       
     }
 }

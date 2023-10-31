@@ -25,21 +25,6 @@ namespace CorNProject
         }
         public void FindAndChange(FindReplaceSettings settings)
         {
-
-            //if (settings.FileList.Count == 0)
-            //{
-            //    //if (settings.FilePath == null || settings.FilePath == "")
-            //    //{
-            //    //    MyMessageBox.Show("No files are choosen to be changed", MessageBoxButton.OK);
-            //    //    settings.FileList.Clear();
-            //    //}
-            //    //else
-            //    //{
-            //        var fileLIst = InputPathClick(settings.FilePath);
-            //        settings.FileList = fileLIst;
-            //    //}
-            //}
-
             if (settings.FileList.Count != 0)
             {
                 if (settings.ToFind == null || settings.ToFind == "")
@@ -54,7 +39,6 @@ namespace CorNProject
                     logWindow.Owner = settings.Owner;
                     logWindow.Show();
                 }
-                //settings.FileList.Clear();
             }
         }
         public List<string> InputPathClick(string FilePath)
@@ -133,11 +117,7 @@ namespace CorNProject
                     MyMessageBox.Show($"Exception information: {e}", MessageBoxButton.OK);
                     break;
                 }
-                //finally
-                //{
-                //    MessageBox.Show("Executing finally block.");
-                //}
-
+               
                 var logger = new MyLogger()
                 {
                     FileName = file,
