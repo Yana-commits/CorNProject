@@ -28,13 +28,13 @@ namespace CorNProject
         public MainWindow()
         {
             SetLang.ToSetLang();
+            InitializeComponent();
+
             StatusChecker.Instance().isActualKey += CheckKey;
             StatusChecker.Instance().SetTimer();
 
             Data = new DialogData();
-            DataContext = this;
-            InitializeComponent();
-
+            DataContext = this; 
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

@@ -23,6 +23,7 @@ namespace CorNProject
             if (logWindow != null)
                 logWindow.Close();
         }
+       
         public void FindAndChange(FindReplaceSettings settings)
         {
             if (settings.FileList.Count != 0)
@@ -44,7 +45,7 @@ namespace CorNProject
         public List<string> InputPathClick(string FilePath)
         {
             List<string> fileList = new List<string>();
-            string[]possAddresses = FilePath.Split(';');
+            string[] possAddresses = FilePath.Split(';');
 
             foreach (var address in possAddresses)
             {
@@ -68,10 +69,10 @@ namespace CorNProject
                         {
                             fileList.Add(address);
                         }
-                    }  
+                    }
                 }
             }
-            
+
             return fileList;
         }
         public List<MyLogger> FindAndReplace(string toFind, string toReplace, List<string> fileNames, bool onlyFind)
@@ -117,7 +118,7 @@ namespace CorNProject
                     MyMessageBox.Show($"Exception information: {e}", MessageBoxButton.OK);
                     break;
                 }
-               
+
                 var logger = new MyLogger()
                 {
                     FileName = file,

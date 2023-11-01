@@ -11,22 +11,21 @@ namespace CorNProject.Services
 {
     public static class SetLang
     {
-        private const string defaulltEng = "en-US";
-        private const string defaulltRu = "ru-RU";
-
         public static string currentInfo;
 
         public static void ToSetLang()
         {
+            var config = new ConfigService();
+
             var cultureInfo = CultureInfo.CurrentCulture.Name;
 
-            if (cultureInfo == defaulltEng || cultureInfo == defaulltRu)
+            if (cultureInfo == config.DefaultCulture.DefaulltEng || cultureInfo == config.DefaultCulture.DefaulltRu)
             {
                 currentInfo = cultureInfo;
             }
             else
             {
-                currentInfo = defaulltEng;
+                currentInfo = config.DefaultCulture.DefaulltEng;
             }
 
            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentInfo);

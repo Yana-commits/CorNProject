@@ -1,0 +1,14 @@
+{
+  
+    "Addresses": {
+      "Connection": "google.com",
+      "ServerConnection": "http://localhost:5269/api/v1/value/isactual"
+    },
+    "LicenseKey": "123",
+    "DefaultCulture": {
+      "DefaulltEng": "en-US",
+      "DefaulltRu": "ru-RU"
+
+    }
+ 
+}
