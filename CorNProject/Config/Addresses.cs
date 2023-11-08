@@ -10,5 +10,6 @@ namespace CorNProject.Config
     {
         public string Connection { get; set; }
         public string ServerConnection { get; set; }
+        public string SetIntoDatabase { get; set; }
     }
 }

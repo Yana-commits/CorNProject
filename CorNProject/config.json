@@ -1,9 +1,10 @@
 {
-  
-    "Addresses": {
-      "Connection": "google.com",
-      "ServerConnection": "http://localhost:5269/api/v1/value/isactual"
-    },
+
+  "Addresses": {
+    "Connection": "google.com",
+    "ServerConnection": "http://localhost:5269/api/v1/value/isactual",
+    "SetIntoDatabase": "http://localhost:5269/api/v1/value/addoperation"
+  },
     "LicenseKey": "123",
     "DefaultCulture": {
       "DefaulltEng": "en-US",
