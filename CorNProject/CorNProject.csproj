@@ -74,4 +74,10 @@
 	  </None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Page Update="Dictionary-en-US.xaml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Page>
+	</ItemGroup>
+
 </Project>

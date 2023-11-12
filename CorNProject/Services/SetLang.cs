@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CorNProject.Services
 {
@@ -28,7 +29,15 @@ namespace CorNProject.Services
                 currentInfo = config.DefaultCulture.DefaulltEng;
             }
 
-           Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentInfo);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(currentInfo);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentInfo);
+
+            Application.Current.Resources.MergedDictionaries.Clear();
+            ResourceDictionary resdict = new ResourceDictionary()
+            {
+                Source = new Uri($"/Dictionary-{currentInfo}.xaml", UriKind.Relative)
+            };
+            Application.Current.Resources.MergedDictionaries.Add(resdict);
 
             Properties.Settings.Default.languageCode = currentInfo;
             Properties.Settings.Default.Save();

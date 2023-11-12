@@ -26,6 +26,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Dictionary-en-US.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionary-ru-RU.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoggWin.xaml">
       <SubType>Designer</SubType>
     </Page>

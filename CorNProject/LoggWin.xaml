@@ -5,14 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorNProject"
         mc:Ignorable="d"
-        xmlns:language="clr-namespace:CorNProject.Properties.Langs"
         Title="CorN" Height="450" Width="400"
          Icon="Resources\icon.png">
 
     <Grid>
 
         <StackPanel>
-            <Label Content="{x:Static language:Lang.logging}" VerticalAlignment="Bottom" />
+            <Label Content="{DynamicResource logging}" VerticalAlignment="Bottom" />
             <DataGrid Name="LoggsData" BorderThickness="0" VerticalGridLinesBrush="LightGray" 
                   HorizontalGridLinesBrush="LightGray" AutoGenerateColumns="False" ItemsSource="{Binding GridItems}">
                 <DataGrid.Columns>

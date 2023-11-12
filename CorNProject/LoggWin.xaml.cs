@@ -1,6 +1,4 @@
 ﻿using CorNProject.Data;
-using CorNProject.Properties.Langs;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -20,20 +18,14 @@ namespace CorNProject
             set => _gridItems = value;
         }
 
-        private string actPlural = Lang.replacements;
-        private string actOnly = Lang.replacement;
-        private string actPlralRus = Lang.replacements1;
-        private string act = Lang.produced;
+        private string? actPlural = ""; 
+        private string? actOnly = "";
+        private string? actPlralRus = "";
+        private string? act = "";
 
         public LoggWin(List<MyLogger> _loggs, bool onlyFind)
         {
-            if (onlyFind)
-            {
-                actOnly = Lang.match;
-                actPlural = Lang.matches;
-                actPlralRus = Lang.matches1;
-                act = Lang.found;
-            }
+            SetText(onlyFind);
 
             GridItems = new ObservableCollection<LogToShow>();
 
@@ -55,6 +47,24 @@ namespace CorNProject
 
             InitializeComponent();
             LoggsData.IsReadOnly = true;
+        }
+
+        private void SetText(bool onlyFind)
+        {
+            if (onlyFind)
+            {
+                actOnly = FindResource("match").ToString();
+                actPlural = FindResource("matches").ToString();
+                actPlralRus = FindResource("matches1").ToString();
+                act = FindResource("found").ToString();
+            }
+            else
+            {
+                actOnly = FindResource("replacements").ToString();
+                actPlural = FindResource("replacement").ToString();
+                actPlralRus = FindResource("replacement1").ToString();
+                act = FindResource("produced").ToString();
+            }
         }
     }
 }

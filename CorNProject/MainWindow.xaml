@@ -22,7 +22,7 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
             <StackPanel>
-                <Label Content="{x:Static language:Lang.to_choose_files}" VerticalAlignment="Bottom" />
+                <Label Content="{DynamicResource To_choose_files}" VerticalAlignment="Bottom" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
                     <TextBox Height="25" HorizontalAlignment="Stretch" Name ="FilePathTextBox" Margin="5"
                  VerticalAlignment="Stretch" Width="600"  Text="{Binding Data.FilePath}"/>
@@ -32,7 +32,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
             <StackPanel>
-                <Label Content="{x:Static language:Lang.find}"  VerticalAlignment="Bottom" />
+                <Label Content="{DynamicResource Find}"  VerticalAlignment="Bottom" />
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <TextBox Grid.Row="1" Height="25" HorizontalAlignment="Stretch" Name ="FindTextBox" Margin="5"
                  VerticalAlignment="Stretch" Width="600"  Text="{Binding Data.TxtToFind}" />
@@ -42,7 +42,7 @@
 
         <StackPanel Grid.Row="2" Grid.Column="0" Margin="5">
             <StackPanel>
-                <Label Content="{x:Static language:Lang.change}" VerticalAlignment="Bottom"/>
+                <Label Content="{DynamicResource change}" VerticalAlignment="Bottom"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <TextBox Grid.Row="2" Height="25" HorizontalAlignment="Stretch" Name ="ChangeTextBox" Margin="5"
                  VerticalAlignment="Stretch" Width="600" MinWidth="100" Text="{Binding Data.TxtToReplace}" />
@@ -54,19 +54,19 @@
             <Label Content="" VerticalAlignment="Bottom"/>
             <StackPanel Orientation="Horizontal">
                 <Button  x:Name="btnFile" Width="60" Height="25" Margin="5">
-                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="{x:Static language:Lang.to_choose}"/><LineBreak/><Run Text="{x:Static language:Lang.file}"/></TextBlock>
+                    <TextBlock  TextAlignment="Center" FontSize="8"><Run Text="{DynamicResource to_choose}"/><LineBreak/><Run Text="{DynamicResource file}"/></TextBlock>
                 </Button>
                 <Button x:Name="btnDirectory"  Width="60" Height="25" Margin="5">
-                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="{x:Static language:Lang.to_choose}"/><LineBreak/><Run Text="{x:Static language:Lang.folder}"/></TextBlock>
+                    <TextBlock TextAlignment="Center" FontSize="8"><Run Text="{DynamicResource to_choose}"/><LineBreak/><Run Text="{DynamicResource folder}"/></TextBlock>
                 </Button>
-                <Button  x:Name="btnClear" Content="{x:Static language:Lang.clear}" Width="60" Height="25" Margin="5"/>
+                <Button  x:Name="btnClear" Content="{DynamicResource clear}" Width="60" Height="25" Margin="5"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Margin="5" >
             <Label Content="" VerticalAlignment="Bottom"/>
             <StackPanel Orientation="Horizontal">
-                <Button Grid.Row="2" Name="btnChange" Content="{x:Static language:Lang.change}" Width="60" Height="25" 
+                <Button Grid.Row="2" Name="btnChange" Content="{DynamicResource change}" Width="60" Height="25" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5"/>
                 <TextBlock x:Name="Status" Text="sd"  Margin="90,10" Width="50" />
             </StackPanel>

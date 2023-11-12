@@ -140,16 +140,16 @@ namespace CorNProject
         private void ChangeBtnName(Button button, StatusEnum status)
         {
             if (status == StatusEnum.OnlineVersion)
-                ChangeBtn(button, Lang.change);
+                ChangeBtn(button, "change");
 
             else
-                ChangeBtn(button, Lang.find);
+                ChangeBtn(button, "Find");
         }
         private void ChangeBtn(Button button, string cont)
         {
             this.Dispatcher.Invoke(() =>
             {
-                button.Content = cont;
+                button.SetResourceReference(ContentProperty, cont);
             });
         }
         private void ChangeTxt(TextBlock block, string cont)

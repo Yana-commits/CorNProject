@@ -4,7 +4,7 @@
     "Connection": "google.com",
     "ServerConnection": "http://localhost:5269/api/v1/value"
   },
-    "LicenseKey": "123",
+    "LicenseKey": "126",
     "DefaultCulture": {
       "DefaulltEng": "en-US",
       "DefaulltRu": "ru-RU"

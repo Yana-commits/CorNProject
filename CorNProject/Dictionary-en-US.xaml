@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:System="clr-namespace:System;assembly=System.Runtime">
+
+    <System:String x:Key="To_choose_files">To choose files</System:String>
+    <System:String x:Key="Find">Find</System:String>
+    <System:String x:Key="change">Change</System:String>
+    <System:String x:Key="to_choose" xml:space="preserve">To choose</System:String>
+    <System:String x:Key="file" xml:space="preserve">file</System:String>
+    <System:String x:Key="folder" xml:space="preserve">folder</System:String>
+    <System:String x:Key="clear" xml:space="preserve">Clear</System:String>
+    <System:String x:Key="logging" xml:space="preserve">Logging</System:String>
+    <System:String x:Key="found" xml:space="preserve">found</System:String>
+    <System:String x:Key="match" xml:space="preserve">match</System:String>
+    <System:String x:Key="matches" xml:space="preserve">matches</System:String>
+    <System:String x:Key="matches1" xml:space="preserve">matches</System:String>
+    <System:String x:Key="produced" xml:space="preserve">produced</System:String>
+    <System:String x:Key="replacement" xml:space="preserve">replacement</System:String>
+    <System:String x:Key="replacements" xml:space="preserve">replacements</System:String>
+    <System:String x:Key="replacements1" xml:space="preserve">replacements</System:String>
+    <System:String x:Key="no_txt_find" xml:space="preserve">Need to input text to find</System:String>
+    <System:String x:Key="Exception_info" xml:space="preserve">Exception information:</System:String>
+</ResourceDictionary>

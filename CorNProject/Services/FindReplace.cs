@@ -1,21 +1,15 @@
 ﻿using CorNProject.Data;
 using CorNProject.Models;
-using CorNProject.Requests;
-using CorNProject.Response;
 using CorNProject.Services.ConnectionServises;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 
 namespace CorNProject.Services
 {
-    internal class FindReplace
+    internal class FindReplace : FrameworkElement
     {
         private LoggWin logWindow;
         private FileFeatures features ;
@@ -43,7 +37,8 @@ namespace CorNProject.Services
             {
                 if (settings.ToFind == null || settings.ToFind == "")
                 {
-                    MyMessageBox.Show("Need to input text to find", MessageBoxButton.OK);
+                    string? message = FindResource("no_txt_find").ToString();
+                    MyMessageBox.Show(message, MessageBoxButton.OK);
                 }
                 else
                 {
@@ -131,7 +126,8 @@ namespace CorNProject.Services
                 }
                 catch (SystemException e)
                 {
-                    MyMessageBox.Show($"Exception information: {e}", MessageBoxButton.OK);
+                    string? message = FindResource("Exception_info").ToString();
+                    MyMessageBox.Show($"{message} {e}", MessageBoxButton.OK);
                     break;
                 }
 
