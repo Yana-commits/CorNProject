@@ -14,23 +14,6 @@ namespace CorNProject.Services.ConnectionServises
     public static class HttpRequests
     {
 
-        //public async Task GetItemAsync()
-        //{
-        //    HttpClient client = new()
-        //    {
-        //        BaseAddress = new Uri("https://virtserver.swaggerhub.com")
-        //    };
-
-        //    HttpResponseMessage response = await client.GetAsync("/PJ2009PJ2009_1/Project/1.0.0/lightingSummary");
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var product = await response.Content.ReadAsStringAsync();
-
-        //        Console.WriteLine($"{product}\n");
-        //    }
-
-        //}
         public static async Task<TResponse> SendAsync<TResponse, TRequest>(string url, HttpMethod method, TRequest? content)
         {
             var client = new HttpClient();

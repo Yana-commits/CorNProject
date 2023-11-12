@@ -18,11 +18,18 @@ namespace CorNProject.Services
     internal class FindReplace
     {
         private LoggWin logWindow;
-        private FileFeatures features = new FileFeatures();
-        private ErrorMessages errorMessages = new ErrorMessages();
-        private RequestManager requestManager = new RequestManager();
+        private FileFeatures features ;
+        private ErrorMessages errorMessages;
+        private RequestManager requestManager ;
 
         private int number = 0;
+
+        public FindReplace()
+        {
+            features = new FileFeatures();
+            errorMessages = new ErrorMessages();
+            requestManager = new RequestManager();
+        }
 
         public void RemoveLogWin()
         {
@@ -170,25 +177,5 @@ namespace CorNProject.Services
             }
             return true;
         }
-
-        //private async Task SetLoggsIntoDatabase(List<MyLogger> myLoggers)
-        //{
-        //    var config = new ConfigService();
-        //    var infoList = new List<OperationInfoReqest>();
-
-        //    foreach (var item in myLoggers)
-        //    {
-        //        var request = new OperationInfoReqest()
-        //        {
-        //            FilePath = item.FileName,
-        //            ProducedOperations = item.Number
-        //        };
-        //        infoList.Add(request);
-        //    }
-
-        //    var result = await HttpRequests.SendAsync<GetIdsResponse, List<OperationInfoReqest>>(config.Addresses.SetIntoDatabase,
-        //       HttpMethod.Post,
-        //      infoList);
-        //}
     }
 }

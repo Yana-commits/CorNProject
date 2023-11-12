@@ -18,7 +18,6 @@ namespace CorNProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ErrorMessages errorMessages = new ErrorMessages();
         private FindReplace findReplace = new FindReplace();
         private FileDialogManager dialogManager = new FileDialogManager();
         private StatusEnum status = StatusEnum.OnlineVersion;

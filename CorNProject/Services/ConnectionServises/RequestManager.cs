@@ -33,7 +33,7 @@ namespace CorNProject.Services.ConnectionServises
                 infoList.Add(request);
             }
 
-            var result = await HttpRequests.SendAsync<GetIdsResponse, List<OperationInfoReqest>>(_config.Addresses.SetIntoDatabase,
+            var result = await HttpRequests.SendAsync<GetIdsResponse, List<OperationInfoReqest>>($"{_config.Addresses.ServerConnection}/addoperation",
                HttpMethod.Post,
               infoList);
         }
@@ -43,7 +43,7 @@ namespace CorNProject.Services.ConnectionServises
 
             IsActualRequest key = new IsActualRequest() { Key = _config.LicenseKey };
 
-            var result = await HttpRequests.SendAsync<bool, IsActualRequest>(_config.Addresses.ServerConnection,
+            var result = await HttpRequests.SendAsync<bool, IsActualRequest>($"{_config.Addresses.ServerConnection}/isactual",
                 HttpMethod.Post,
                key);
 

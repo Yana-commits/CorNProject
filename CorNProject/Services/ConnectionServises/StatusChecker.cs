@@ -57,18 +57,7 @@ namespace CorNProject.Services.ConnectionServises
 
             return status;
         }
-        //public async Task<bool> IsActual(ConfigService config)
-        //{
-
-        //    IsActualRequest key = new IsActualRequest() { Key = config.LicenseKey };
-
-        //    var result = await HttpRequests.SendAsync<bool, IsActualRequest>(config.Addresses.ServerConnection,
-        //        HttpMethod.Post,
-        //       key);
-
-        //    return result;
-        //}
-
+      
         private StatusEnum CheckKey(bool isActual, ConfigService config)
         {
             StatusEnum status = StatusEnum.OnlineVersion;
