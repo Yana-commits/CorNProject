@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace CorNProject.Services
 {
-    public class ErrorMessages
+    public class ErrorMessages : FrameworkElement
     {
         public bool FileNOtExists(string path)
         {
@@ -13,7 +13,8 @@ namespace CorNProject.Services
 
             if (exist == false)
             {
-                MyMessageBox.Show("File is not exists", MessageBoxButton.OK);
+                string? message = FindResource("File_not_exists").ToString();
+                MyMessageBox.Show(message, MessageBoxButton.OK);
                 return false;
             }
 

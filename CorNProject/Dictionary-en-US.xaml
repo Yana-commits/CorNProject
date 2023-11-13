@@ -20,4 +20,9 @@
     <System:String x:Key="replacements1" xml:space="preserve">replacements</System:String>
     <System:String x:Key="no_txt_find" xml:space="preserve">Need to input text to find</System:String>
     <System:String x:Key="Exception_info" xml:space="preserve">Exception information:</System:String>
+    <System:String x:Key="No_files" xml:space="preserve">No files are choosen to be changed</System:String>
+    <System:String x:Key="File_not_exists" xml:space="preserve">File is not exists</System:String>
+    <System:String x:Key="File:" xml:space="preserve">File:</System:String>
+    <System:String x:Key="is_readonly" xml:space="preserve">is readonly</System:String>
+    <System:String x:Key="no_extention" xml:space="preserve">has no extention</System:String>
 </ResourceDictionary>

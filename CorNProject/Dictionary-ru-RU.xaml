@@ -20,4 +20,9 @@
     <System:String x:Key="replacements1" xml:space="preserve">замены</System:String>
     <System:String x:Key="no_txt_find" xml:space="preserve">Необходимо ввести текст для поиска</System:String>
     <System:String x:Key="Exception_info" xml:space="preserve">Информация об исключении:</System:String>
+    <System:String x:Key="No_files" xml:space="preserve">Не выбраны файлы для изменения</System:String>
+    <System:String x:Key="File_not_exists" xml:space="preserve">Файл не существует</System:String>
+    <System:String x:Key="File:" xml:space="preserve">Файл:</System:String>
+    <System:String x:Key="is_readonly" xml:space="preserve">только для чтения</System:String>
+    <System:String x:Key="no_extention" xml:space="preserve">не имеет расширения</System:String>
 </ResourceDictionary>

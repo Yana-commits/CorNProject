@@ -98,7 +98,8 @@ namespace CorNProject
 
             if (Data.FilePath == null || Data.FilePath == "")
             {
-                MyMessageBox.Show("No files are choosen to be changed", MessageBoxButton.OK);
+                string? message = FindResource("No_files").ToString();
+                MyMessageBox.Show(message, MessageBoxButton.OK);
                 fileList.Clear();
                 return;
             }

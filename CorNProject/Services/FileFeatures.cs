@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace CorNProject.Services
 {
-    public class FileFeatures
+    public class FileFeatures : FrameworkElement
     {
         public bool Exams(string file)
         {
@@ -14,13 +14,17 @@ namespace CorNProject.Services
 
             if (fileInfo.IsReadOnly)
             {
-                MyMessageBox.Show($"File: {file} is readonly", MessageBoxButton.OK);
+                string? message1 = FindResource("File:").ToString();
+                string? message2 = FindResource("is_readonly").ToString();
+                MyMessageBox.Show($"{message1} {file} {message2}", MessageBoxButton.OK);
                 err = true;
             }
 
             if (fileInfo.Extension == "")
             {
-                MyMessageBox.Show($"File: {file} has no extention", MessageBoxButton.OK);
+                string? message1 = FindResource("File:").ToString();
+                string? message2 = FindResource("is_readonly").ToString();
+                MyMessageBox.Show($"{message1} {file} {message2}", MessageBoxButton.OK);
                 err = true;
             }
 
