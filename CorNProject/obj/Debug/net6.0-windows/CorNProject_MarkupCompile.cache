@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\A_level\CorNProject\CorNProject\App.xaml
-7843014240
+8-440770028
 
-35-1528254586
+36-404047349
 231634752760
-Dictionary-en-US.xaml;Dictionary-ru-RU.xaml;LoggWin.xaml;MainWindow.xaml;MyMessageBox.xaml;View\UserControls\ClearableTextBox.xaml;View\UserControls\MenuBar.xaml;
+Dictionary-en-US.xaml;Dictionary-ru-RU.xaml;LoggWin.xaml;MainWindow.xaml;MyMessageBox.xaml;SplashWindow.xaml;View\UserControls\ClearableTextBox.xaml;View\UserControls\MenuBar.xaml;
 
 False
 

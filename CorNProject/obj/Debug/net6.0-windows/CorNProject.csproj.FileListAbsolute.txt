@@ -72,5 +72,6 @@ C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\LoggWin.baml
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\A_level\CorNProject\CorNProject\bin\Debug\net6.0-windows\config.json
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\Dictionary-en-US.baml
-C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\App.baml
 C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\Dictionary-ru-RU.baml
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\SplashWindow.g.cs
+C:\A_level\CorNProject\CorNProject\obj\Debug\net6.0-windows\SplashWindow.baml

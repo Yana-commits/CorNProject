@@ -44,6 +44,8 @@ namespace CorNProject
             btnChange.Click += FindAndChange;
 
             SetStatusLook(status);
+
+            SplashWindow.Instance().CloseSplash();
         }
 
         private void BtnDirectoryClick(object sender, RoutedEventArgs e)
@@ -119,7 +121,7 @@ namespace CorNProject
             fileList.Clear();
             Data.FilePath = null;
         }
-        private void CheckKey(StatusEnum _status)
+        public void CheckKey(StatusEnum _status)
         {
             var currStatus = status;
             status = _status;
